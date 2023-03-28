@@ -14,7 +14,7 @@ plugins {
 
 group 'org.example.skyvault05'
 version '1.0-SNAPSHOT'
-sourceCompatibility = 1.8;
+sourceCompatibility = 11;
 
 bootWar.enabled = false
 war.enabled = true

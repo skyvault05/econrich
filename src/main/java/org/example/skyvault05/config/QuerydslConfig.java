@@ -1,4 +1,4 @@
-package org.example.skyvualt05.config;
+package org.example.skyvault05.config;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.springframework.context.annotation.Bean;
