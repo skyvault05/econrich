@@ -11,12 +11,16 @@ import javax.persistence.*;
 @Entity
 @DynamicUpdate @DynamicInsert
 @Getter @Setter
-@ToString
-public class Regions {
+public class Departments {
     @Id
     @Column(columnDefinition = "INT UNSIGNED", length = 11, nullable = false)
-    private Long regionId;
-
-    @Column(length = 25)
-    private String regionName;
+    private Long departmentId;
+    @Column(length = 30)
+    private String departmentName;
+    @ManyToOne
+    @JoinColumn(name = "manager_id")
+    private Employees manager;
+    @ManyToOne
+    @JoinColumn(name = "location_id")
+    private Locations locations;
 }

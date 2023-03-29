@@ -1,7 +1,6 @@
-package org.example.skyvault05.hr;
+package org.example.skyvault05.hr.domain;
 
-import org.example.skyvault05.hr.domain.Regions;
-import org.example.skyvault05.hr.repository.RegionsRepository;
+import org.example.skyvault05.hr.repository.DepartmentsRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -9,14 +8,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
-public class RegionsTest {
+public class DepartmentsTest {
     @Autowired
-    private RegionsRepository regionsRepository;
+    private DepartmentsRepository departmentsRepository;
 
     @Test
     public void findTest(){
-        Regions regions = regionsRepository.findById(1).orElse(null);
-        System.out.println(regions.getRegionName()+":"+regions.getRegionId());
-
+        Departments departments = departmentsRepository.findById(100L).orElse(null);
+        System.out.println(departments);
     }
 }
