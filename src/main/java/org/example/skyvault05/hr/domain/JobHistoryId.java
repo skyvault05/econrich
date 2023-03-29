@@ -19,11 +19,11 @@ import java.time.LocalDateTime;
 public class JobHistoryId implements Serializable {
     @EqualsAndHashCode.Include
     @ManyToOne
-    @JoinColumn(name = "employee_id")
+    @JoinColumn(name = "employee_id", unique = true)
     private Employees employees;
 
     @EqualsAndHashCode.Include
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
 }
