@@ -8,7 +8,7 @@ import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @DynamicUpdate @DynamicInsert
@@ -19,7 +19,7 @@ public class JobHistory {
     private JobHistoryId jobHistoryId;
     @Column(nullable = false)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date endDate;
+    private LocalDate endDate;
     @ManyToOne
     @JoinColumn(name = "job_id")
     private Jobs jobs;

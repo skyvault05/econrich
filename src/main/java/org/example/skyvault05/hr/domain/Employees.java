@@ -9,6 +9,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -28,8 +29,7 @@ public class Employees {
     @Column(length = 20)
     private String phoneNumber;
     @Column(nullable = false)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date hireDate;
+    private LocalDateTime hireDate;
     @ManyToOne
     @JoinColumn(name = "job_id")
     private Jobs jobs;
@@ -43,6 +43,4 @@ public class Employees {
     @ManyToOne
     @JoinColumn(name = "department_id")
     private Departments departments;
-
-
 }
