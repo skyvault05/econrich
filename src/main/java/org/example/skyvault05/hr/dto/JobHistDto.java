@@ -9,12 +9,11 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Getter @Setter
 @NoArgsConstructor
 @ToString
-public class JobHistInfo {
+public class JobHistDto {
     @Schema(description = "사원 ID", example = "104")
     private Long empId;
     @Schema(description = "시작 일자", type="string" ,format = "date", example = "2020-02-17")
@@ -29,7 +28,7 @@ public class JobHistInfo {
     private String departmentName;
 
     @QueryProjection
-    public JobHistInfo(Long empId, LocalDate startDate, LocalDate endDate, String jobId, String departmentName) {
+    public JobHistDto(Long empId, LocalDate startDate, LocalDate endDate, String jobId, String departmentName) {
         this.empId = empId;
         this.startDate = startDate;
         this.endDate = endDate;

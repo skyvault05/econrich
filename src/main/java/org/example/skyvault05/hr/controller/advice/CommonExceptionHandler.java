@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class CommonExceptionHandler {
     @ExceptionHandler
     public ResponseEntity<ExceptionResult> exceptionHandle(NoParameterException e){
-        ExceptionResult exceptionResult = new ExceptionResult("400", "잘못된 파라미터.");
+        ExceptionResult exceptionResult = new ExceptionResult("400", e.getMessage());
         return new ResponseEntity<>(
                 exceptionResult,
                 HttpStatus.BAD_REQUEST
@@ -21,7 +21,7 @@ public class CommonExceptionHandler {
 
     @ExceptionHandler
     public ResponseEntity<ExceptionResult> exceptionHandle(NoResultException e){
-        ExceptionResult exceptionResult = new ExceptionResult("200", "결과가 없습니다.");
+        ExceptionResult exceptionResult = new ExceptionResult("200", e.getMessage());
         return new ResponseEntity<>(
                 exceptionResult,
                 HttpStatus.OK

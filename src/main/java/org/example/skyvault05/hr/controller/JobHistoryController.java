@@ -7,8 +7,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
-import org.example.skyvault05.hr.dto.EmpInfo;
-import org.example.skyvault05.hr.dto.JobHistInfo;
+import org.example.skyvault05.hr.dto.JobHistDto;
 import org.example.skyvault05.hr.exception.dto.ExceptionResult;
 import org.example.skyvault05.hr.service.JobHistoryService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,11 +25,11 @@ public class JobHistoryController {
 
     @Operation(summary = "특정 사원의 이력 정보 조회")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = JobHistInfo.class))),
+            @ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = JobHistDto.class))),
             @ApiResponse(responseCode = "400", description = "Bad Request", content = @Content(schema = @Schema(implementation = ExceptionResult.class)))
     })
     @GetMapping("/{empId}")
-    public List<JobHistInfo> jobHistoryDetails(@PathVariable @Parameter(description = "사원 ID") Long empId){
+    public List<JobHistDto> jobHistoryDetails(@PathVariable @Parameter(description = "사원 ID") Long empId){
         return jobHistoryService.findJobHist(empId);
     }
 }

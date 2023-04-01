@@ -1,9 +1,7 @@
 package org.example.skyvault05.hr.repository;
 
-import org.example.skyvault05.hr.dto.DptInfo;
-
-import java.util.List;
+import org.example.skyvault05.hr.dto.DptDto;
 
 public interface DepartmentsRepositoryCustom {
-    DptInfo findDynamicQuery(Long dptId, String dptName);
+    DptDto findDynamicQuery(Long dptId, String dptName);
 }

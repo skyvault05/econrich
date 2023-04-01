@@ -8,7 +8,7 @@ import lombok.ToString;
 
 @Getter @Setter
 @ToString
-public class LocInfo {
+public class LocDto {
     @Schema(description = "위치 ID", example = "1200")
     private Long locationId;
     @Schema(description = "거리 주소", example = "2017 Shinjuku-ku")
@@ -23,7 +23,7 @@ public class LocInfo {
     private String countryName;
 
     @QueryProjection
-    public LocInfo(Long locationId, String streetAddress, String postalCode, String city, String stateProvince, String countryName) {
+    public LocDto(Long locationId, String streetAddress, String postalCode, String city, String stateProvince, String countryName) {
         this.locationId = locationId;
         this.streetAddress = streetAddress;
         this.postalCode = postalCode;

@@ -1,7 +1,7 @@
 package org.example.skyvault05.hr.domain;
 
 import lombok.SneakyThrows;
-import org.example.skyvault05.hr.dto.JobHistInfo;
+import org.example.skyvault05.hr.dto.JobHistDto;
 import org.example.skyvault05.hr.repository.EmployeesRepository;
 import org.example.skyvault05.hr.repository.JobHistoryRepository;
 import org.example.skyvault05.hr.service.JobHistoryService;
@@ -10,11 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.List;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -46,17 +43,17 @@ public class JobHistoryTest {
         Long empid = 101L;
         String dateStr = "1989-09-21";
         LocalDate startDate = LocalDate.parse(dateStr);
-        List<JobHistInfo> list = jobHistoryRepository.findDynamicQuery(empid, null);
-        for(JobHistInfo jobHistInfo : list){
-            System.out.println(jobHistInfo);
+        List<JobHistDto> list = jobHistoryRepository.findDynamicQuery(empid, null);
+        for(JobHistDto jobHistDto : list){
+            System.out.println(jobHistDto);
         }
     }
 
     @Test
     public void serviceFindJobHist(){
-        List<JobHistInfo> list = jobHistoryService.findJobHist(101L);
-        for(JobHistInfo jobHistInfo : list){
-            System.out.println(jobHistInfo);
+        List<JobHistDto> list = jobHistoryService.findJobHist(101L);
+        for(JobHistDto jobHistDto : list){
+            System.out.println(jobHistDto);
         }
     }
 }

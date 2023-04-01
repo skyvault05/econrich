@@ -8,7 +8,7 @@ import lombok.ToString;
 
 @Getter @Setter
 @ToString
-public class DptInfo {
+public class DptDto {
     @Schema(description = "부서 ID", example = "80")
     private Long departmentId;
     @Schema(description = "부서 이름", example = "Sales")
@@ -16,10 +16,10 @@ public class DptInfo {
     @Schema(description = "매니저 이름", example = "John John")
     private String managerName;
     @Schema(description = "위치 정보")
-    private LocInfo location;
+    private LocDto location;
 
     @QueryProjection
-    public DptInfo(Long departmentId, String departmentName, String managerName, LocInfo location) {
+    public DptDto(Long departmentId, String departmentName, String managerName, LocDto location) {
         this.departmentId = departmentId;
         this.departmentName = departmentName;
         this.managerName = managerName;

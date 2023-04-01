@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Getter @Setter
 @NoArgsConstructor
 @ToString
-public class EmpInfo {
+public class EmpDto {
     @Schema(description = "사원 ID", example = "104")
     private Long employeeId;
     @Schema(description = "사원 이름", example = "Bruce")
@@ -41,7 +41,7 @@ public class EmpInfo {
 
 
     @QueryProjection
-    public EmpInfo(Long employeeId, String firstName, String lastName, String email, String phoneNumber, LocalDateTime hireDate, String job, BigDecimal salary, BigDecimal commissionPct, String manager, String department) {
+    public EmpDto(Long employeeId, String firstName, String lastName, String email, String phoneNumber, LocalDateTime hireDate, String job, BigDecimal salary, BigDecimal commissionPct, String manager, String department) {
         this.employeeId = employeeId;
         this.firstName = firstName;
         this.lastName = lastName;
