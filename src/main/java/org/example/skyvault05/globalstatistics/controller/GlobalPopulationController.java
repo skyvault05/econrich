@@ -1,5 +1,6 @@
 package org.example.skyvault05.globalstatistics.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import lombok.RequiredArgsConstructor;
 import org.example.skyvault05.globalstatistics.repository.GlobalPopulationService;
@@ -16,6 +17,7 @@ import java.io.IOException;
 public class GlobalPopulationController {
     private final GlobalPopulationService globalPopulationService;
 
+    @Operation(summary = "국가별 인구 증감 정보 조회.")
     @GetMapping("/{pageNo}/{numOfRows}/{countryName}/{countryCode}")
     public String globalPopulationDetails(@PathVariable @Parameter(description = "페이지 번호", example = "1") String pageNo,
                                           @PathVariable @Parameter(description = "한 페이지 결과 수", example = "10") String numOfRows,
