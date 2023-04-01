@@ -19,7 +19,7 @@ public class EmpModifyDto {
     private String email;
     @Schema(description = "사원 전화번호", example = "590.423.4568")
     private String phoneNumber;
-    @Schema(description = "고용 일자", type="string" ,format = "date", example = "2022-03-02T10:15:30")
+    @Schema(description = "고용 일자", type="string" ,format = "date", example = "2022-03-02T00:00:00")
     @JsonFormat(shape = JsonFormat.Shape.STRING, timezone = "Asia/Seoul")
     private LocalDateTime hireDate;
     @Schema(description = "사원 직무", example = "IT_PROG")

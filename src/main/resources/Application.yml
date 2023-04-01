@@ -2,7 +2,9 @@ api: /api/v1
 
 spring:
   profiles:
-    include: db
+    include:
+      - db
+      - api
 
 springdoc:
   title: Eco&Rich Test

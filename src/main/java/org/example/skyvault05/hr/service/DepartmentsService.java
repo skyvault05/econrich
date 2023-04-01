@@ -16,13 +16,13 @@ public class DepartmentsService {
     private final EmployeesRepository employeesRepository;
 
     public DptDto findDepartment(Long dptId, String dptName) {
-        if((dptId == null) && (StringUtils.hasText(dptName) || dptName == null)) throw new NoParameterException();
+        if((dptId == null) && (StringUtils.hasText(dptName) || dptName == null)) throw new NoParameterException("유효한 파라미터가 없습니다.");
         return departmentsRepository.findDynamicQuery(dptId, null);
     }
 
     @Transactional
     public Long salaryRenew(Long dptId, Float multiply) {
-        if(dptId == null || multiply == null ||multiply.isNaN()) throw new NoParameterException();
+        if(dptId == null || multiply == null ||multiply.isNaN()) throw new NoParameterException("유효한 파라미터가 없습니다.");
         return employeesRepository.multiplyDptSalary(dptId, multiply);
     }
 }

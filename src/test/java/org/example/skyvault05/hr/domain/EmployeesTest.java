@@ -44,7 +44,7 @@ public class EmployeesTest {
                 "Daniel",
                 "DANIEL",
                 "123.456.789",
-                LocalDateTime.parse("2022-03-02T10:15:30"),
+                LocalDateTime.parse("2022-03-02T00:00:00"),
                 "SH_CLERK",
                 BigDecimal.valueOf(15000L),
                 BigDecimal.valueOf(0.10f),
@@ -91,17 +91,15 @@ public class EmployeesTest {
     public void modifyEmpTest(){
         ObjectMapper objectMapper = new ObjectMapper();
 
-        Employees entity = employeesRepository.findById(301L).orElseThrow(null);
-
         EmpModifyDto dto = new EmpModifyDto(
                 "Jack",
                 "Daniel",
                 "DANIEL",
                 "123.456.789",
-                LocalDateTime.parse("2022-03-02T10:15:30"),
+                LocalDateTime.parse("2022-03-02T00:00:00"),
                 "SH_CLERK",
                 BigDecimal.valueOf(15000L),
-                BigDecimal.valueOf(0.10f),
+                BigDecimal.valueOf(0.10),
                 100L,
                 110L
         );
@@ -114,7 +112,7 @@ public class EmployeesTest {
 //                LocalDateTime.parse("2002-03-02T10:15:30"),
 //                "SA_REP",
 //                BigDecimal.valueOf(20000L),
-//                BigDecimal.valueOf(0.20f),
+//                BigDecimal.valueOf(0.20),
 //                101L,
 //                80L
 //        );

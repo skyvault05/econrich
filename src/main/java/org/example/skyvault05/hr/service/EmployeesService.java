@@ -17,7 +17,7 @@ public class EmployeesService {
     public EmpDto findEmp(Long empId, String firstName, String lastName) {
         if((empId == null)
                 &&(firstName == null || "".equals(firstName))
-                &&(lastName == null || "".equals(lastName))) throw new NoParameterException();
+                &&(lastName == null || "".equals(lastName))) throw new NoParameterException("유효한 파라미터가 없습니다.");
         return employeesRepository.findDynamicQuery(empId, firstName, lastName).orElseThrow(() -> new NoResultException("해당 사원을 찾을 수 없습니다."));
     }
 
