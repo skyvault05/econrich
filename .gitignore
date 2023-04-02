@@ -138,9 +138,9 @@ logs/*
 
 .idea
 
-src/main/resources/Application-oauth2.yml
-src/main/resources/Application-db.yml
-src/main/resources/Application-api.yml
+src/main/resources/application-oauth2.yml
+src/main/resources/application-db.yml
+src/main/resources/application-api.yml
 
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
 !gradle-wrapper.jar
