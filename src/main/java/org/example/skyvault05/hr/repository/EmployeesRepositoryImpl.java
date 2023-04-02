@@ -1,9 +1,11 @@
 package org.example.skyvault05.hr.repository;
 
+import com.querydsl.core.dml.UpdateClause;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.JPAExpressions;
 import com.querydsl.jpa.JPQLQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import com.querydsl.jpa.impl.JPAUpdateClause;
 import lombok.RequiredArgsConstructor;
 import org.example.skyvault05.hr.dto.EmpDto;
 import org.example.skyvault05.hr.dto.EmpModifyDto;
@@ -83,18 +85,19 @@ public class EmployeesRepositoryImpl implements EmployeesRepositoryCustom{
 
     @Override
     public Boolean updateWithModifyDto(Long empId, EmpModifyDto dto){
-        jpaQueryFactory
-                .update(employees)
-                .set(employees.firstName, dto.getFirstName())
-                .set(employees.lastName, dto.getLastName())
-                .set(employees.email, dto.getEmail())
-                .set(employees.phoneNumber, dto.getPhoneNumber())
-                .set(employees.hireDate, dto.getHireDate())
-                .set(employees.jobs.jobId, dto.getJobId())
-                .set(employees.salary, dto.getSalary())
-                .set(employees.commissionPct, dto.getCommissionPct())
-                .set(employees.manager.employeeId, dto.getManagerId())
-                .set(employees.departments.departmentId, dto.getDepartmentId())
+        UpdateClause<JPAUpdateClause> updateClause = jpaQueryFactory.update(employees);
+        if(dto.getFirstName() != null) updateClause.set(employees.firstName, dto.getFirstName());
+        if(dto.getLastName() != null) updateClause.set(employees.lastName, dto.getLastName());
+        if(dto.getEmail() != null) updateClause.set(employees.email, dto.getEmail());
+        if(dto.getPhoneNumber() != null) updateClause.set(employees.phoneNumber, dto.getPhoneNumber());
+        if(dto.getHireDate() != null) updateClause.set(employees.hireDate, dto.getHireDate());
+        if(dto.getJobId() != null) updateClause.set(employees.jobs.jobId, dto.getJobId());
+        if(dto.getSalary() != null) updateClause.set(employees.salary, dto.getSalary());
+        if(dto.getCommissionPct() != null) updateClause.set(employees.commissionPct, dto.getCommissionPct());
+        if(dto.getManagerId() != null) updateClause.set(employees.manager.employeeId, dto.getManagerId());
+        if(dto.getDepartmentId() != null) updateClause.set(employees.departments.departmentId, dto.getDepartmentId());
+
+        updateClause
                 .where(eqId(empId))
                 .execute();
 

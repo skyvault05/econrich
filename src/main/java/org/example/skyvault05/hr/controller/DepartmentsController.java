@@ -36,7 +36,7 @@ public class DepartmentsController {
     })
     @PatchMapping("/{dptId}/salary-change/{multiply}")
     public Long salaryRenew(@PathVariable @Parameter(description = "부서 ID") Long dptId,
-                            @PathVariable @Parameter(description = "임금 변동 비율") Float multiply){
+                            @PathVariable @Parameter(description = "임금 변동 비율(임금 X 비율) 1.1이면 10%인상.", example = "1.1") Float multiply){
         return departmentsService.salaryRenew(dptId, multiply);
     }
 }
