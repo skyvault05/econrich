@@ -14,3 +14,7 @@ Api 문서는 OpenAPI-UI의 Swagger를 이용하여 자동화 하였습니다.
 ### Infrastructure
 DB와 API Server는 AWS EC2의 개별 인스턴스로 구현하였으며, OS는 Linux Ubuntu를 사용하였습니다.
 WAS로는 Tomcat을 사용하였습니다.
+
+### Version Control
+VCS로는 Git을 사용하였으며 저장소는 Git Hub를 사용하였습니다. 
+dev브랜치와 운영 브랜치인 main으로 나누어 개발을 진행하였습니다.
