@@ -36,7 +36,6 @@ public class EmployeesController {
     })
     @PutMapping("/{empId}")
     public EmpDto empModify(@PathVariable @Parameter Long empId, @RequestBody EmpModifyDto empModifyDto){
-        System.out.println(empId +":"+ empModifyDto);
         return employeesService.modifyEmp(empId, empModifyDto);
     }
 }

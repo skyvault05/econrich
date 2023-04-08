@@ -3,8 +3,8 @@ spring:
     include: db, api
 
 springdoc:
-  title: Eco&Rich Test
-  description: Eco&Rich coding test documentation
+  title: HR System
+  description: HR System documentation
   version: 0.0.1
   default-consumes-media-type: application/json
   default-produces-media-type: application/json
