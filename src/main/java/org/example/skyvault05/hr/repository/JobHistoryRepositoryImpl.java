@@ -9,6 +9,7 @@ import org.example.skyvault05.hr.dto.QJobHistDto;
 import java.time.LocalDate;
 import java.util.List;
 
+import static org.example.skyvault05.hr.domain.QDepartments.departments;
 import static org.example.skyvault05.hr.domain.QJobHistory.jobHistory;
 
 @RequiredArgsConstructor
@@ -28,6 +29,7 @@ public class JobHistoryRepositoryImpl implements JobHistoryRepositoryCustom{
                         )
                 )
                 .from(jobHistory)
+                .join(jobHistory.departments, departments)
                 .where(
                         eqEmpId(empId),
                         eqStartDate(startDate)

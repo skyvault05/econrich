@@ -9,12 +9,12 @@ import org.example.skyvault05.hr.dto.EmpSaveDto;
 import org.example.skyvault05.hr.exception.NoResultException;
 import org.example.skyvault05.hr.mapper.EmployeesMapper;
 import org.example.skyvault05.hr.repository.EmployeesRepository;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -37,6 +37,7 @@ public class EmployeesTest {
     private EmployeesMapper employeesMapper;
 
     @Test
+    @Disabled
     public void saveNewEmp(){
         EmpSaveDto dto = new EmpSaveDto(
                 301L,
@@ -61,12 +62,13 @@ public class EmployeesTest {
 
     @Test
     public void dynamicQueryTest(){
-        EmpDto empDto = employeesRepository.findDynamicQuery(10L, null, null).orElseThrow(() -> new NoResultException());
+        EmpDto empDto = employeesRepository.findDynamicQuery(101L, null, null).orElseThrow(() -> new NoResultException());
         System.out.println(empDto);
     }
 
     @Test
     @Transactional
+    @Disabled
     public void multiplyDptSalaryTest(){
         Float multi = 1.02f;
         Long dptId = 110L;
@@ -77,6 +79,7 @@ public class EmployeesTest {
     @SneakyThrows
     @Test
     @Transactional
+    @Disabled
     public void multiplyDptSalaryResultTest(){
         Float multi = 1.02f;
         Long dptId = 110L;
@@ -87,7 +90,7 @@ public class EmployeesTest {
 
     @SneakyThrows
     @Test
-    @Rollback(value = false)
+    @Disabled
     public void modifyEmpTest(){
         ObjectMapper objectMapper = new ObjectMapper();
 

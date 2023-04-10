@@ -9,6 +9,8 @@ import org.example.skyvault05.hr.dto.QLocDto;
 import org.springframework.util.StringUtils;
 
 import static org.example.skyvault05.hr.domain.QDepartments.departments;
+import static org.example.skyvault05.hr.domain.QEmployees.employees;
+import static org.example.skyvault05.hr.domain.QLocations.locations;
 
 @RequiredArgsConstructor
 public class DepartmentsRepositoryImpl implements DepartmentsRepositoryCustom{
@@ -32,6 +34,8 @@ public class DepartmentsRepositoryImpl implements DepartmentsRepositoryCustom{
                     )
                 )
                 .from(departments)
+                .leftJoin(departments.locations, locations)
+                .leftJoin(departments.manager, employees)
                 .where(
                         eqDptId(dptId),
                         eqDptName(dptName)
